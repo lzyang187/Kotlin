@@ -1,3 +1,5 @@
+import javafx.scene.shape.Circle
+
 //集合
 fun main(args: Array<String>) {
     val list1 = mutableListOf(null, 1, 2, 3)
@@ -15,5 +17,23 @@ fun main(args: Array<String>) {
     if (list2.none { it > 6 }) {
         println("没有大于6的元素")
     }
+
+    val list3 = mutableListOf<String?>()
+    for (a in list3.indices) {
+        println(a)
+    }
+    println("list3.isNullOrEmpty=${list3.isNullOrEmpty()}")
+    // 索引超出边界，会抛出异常
+//    println(list3[0])
+    list3.add("a")
+    list3.add(null)
+    println(list3.lastOrNull())
+
+    val circle: Circle? = null
+    circle?.apply {
+        println("circle不为空")
+    } ?: println("circle为空")
+
+
 }
 
