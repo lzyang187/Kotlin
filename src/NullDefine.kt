@@ -4,11 +4,13 @@ import java.lang.IllegalArgumentException
 fun main(args: Array<String>) {
     //声明一个变量为可空字符串
     val str: String? = null
-    val len = if (str != null) str.length else 0
+    val len = str?.length ?: 0
     //elvis操作符 如果 ?: 左侧表达式非空，elvis 操作符就返回其左侧表达式，否则返回右侧表达式
     val length = str?.length ?: -1
     println("$len  $length")
     println(str?.length)
+    println(str.isNullOrEmpty())
+    println(str?.isEmpty() ?: false)
     //安全调用在链式调用中很有用
     //person?.body?.hand
 

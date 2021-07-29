@@ -10,8 +10,13 @@ class Person constructor(var name: String, var age: Int = 18) {
     var nameUp = name.toUpperCase()
     var book: Book? = null
 
+    // 实例初始化期间，初始化块按照它们出现在类体中的顺序执行，与属性初始化器交织在一起
     init {
-        println("主构造函数的参数 name=$name age=$age")
+        println("主构造函数的参数 name=$name age=$age book=$book")
+    }
+
+    init {
+        println("初始化块2")
     }
 
     //次构造函数
