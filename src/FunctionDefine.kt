@@ -9,7 +9,7 @@ fun main(args: Array<String>) {
 //    printWhileLoop()
 //    println(switchCase(1))
 //    println(inRange(5))
-//    inRnageStep()
+    inRnageStep()
 //    useCollections()
 //    useMap()
 //    defaultValue("tom")
@@ -22,6 +22,7 @@ fun sum(a: Int, b: Int): Int {
     return a + b
 }
 
+// 当一个函数只有一行代码时，可以省略函数体部分，直接将这一行代码使用等号串连在函数定义的尾部。
 fun sumSimple(a: Int, b: Int) = a + b
 
 fun printSum(a: Int, b: Int) {
@@ -36,6 +37,7 @@ fun maxOf(a: Int, b: Int): Int {
     }
 }
 
+// 虽然maxOfSimple()函数不止只有一行代码，但是它和只有一行代码的作用是相同的，只是return了一下if语句的返回值而已，符合该语法糖的使用条件
 fun maxOfSimple(a: Int, b: Int) = if (a > b) a else b
 
 fun parseInt(a: String): Int? {
@@ -90,7 +92,7 @@ fun inRnageStep() {
         println(x)
     }
 
-    //半开区间
+    //左闭右开区间
     for (x in 1 until 10) {
         println(x)
     }

@@ -6,7 +6,7 @@ fun main(args: Array<String>) {
     //toList 扩展方法只是复制列表项，因此返回的 list 保证永远不会改变
     val snapshot = list1.toList()
     list1.add(4)
-    println(snapshot)
+    println("snapshot：$snapshot")
     println(list1.filterNotNull())
     println(list1.firstOrNull())
 
