@@ -36,5 +36,6 @@ class GetSet(val list: MutableList<Int>) {
     var name: String = ""
         set(value) {
             println("调用了set value:$value")
+            field = value
         }
 }
