@@ -9,7 +9,7 @@ fun main(args: Array<String>) {
 //    printWhileLoop()
 //    println(switchCase(1))
 //    println(inRange(5))
-    inRnageStep()
+    inRangeStep()
 //    useCollections()
 //    useMap()
 //    defaultValue("tom")
@@ -83,7 +83,7 @@ fun inRange(a: Int): Boolean {
     return a in 1..10
 }
 
-fun inRnageStep() {
+fun inRangeStep() {
     for (x in 1..10 step 2) {
         println(x)
     }
