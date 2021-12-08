@@ -16,6 +16,7 @@ fun main(args: Array<String>) {
     val a = arrayOf(7, 8, 9)
     //已经有一个数组并希望将其内容传给该函数，我们使用伸展（spread）操作符（在数组前面加 *）
     println(asList(asList(1, 2, 3, *a)))
+    closureFun(::complete)
 }
 
 fun sum(a: Int, b: Int): Int {
@@ -132,8 +133,14 @@ fun <T> asList(vararg ts: T): List<T> {
     return result
 }
 
-//lambda表达式和匿名函数
+//闭包
+fun closureFun(complete: (Int, String) -> String) {
+    println(complete(1, "a"))
+}
 
+fun complete(a: Int, string: String): String {
+    return "$a$string"
+}
 
 
 
