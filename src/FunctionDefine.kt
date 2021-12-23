@@ -17,6 +17,7 @@ fun main(args: Array<String>) {
     //已经有一个数组并希望将其内容传给该函数，我们使用伸展（spread）操作符（在数组前面加 *）
     println(asList(asList(1, 2, 3, *a)))
     closureFun(::complete)
+    println(stringLengthFun("android"))
 }
 
 fun sum(a: Int, b: Int): Int {
@@ -103,9 +104,9 @@ fun useCollections() {
     //只读list
     val items = listOf("kiwifruit", "apple", "banana", "avocado")
     items.filter { it.startsWith("a") }
-        .sortedBy { it }
-        .map { it.toUpperCase() }
-        .forEach { println(it) }
+            .sortedBy { it }
+            .map { it.toUpperCase() }
+            .forEach { println(it) }
     //在可能为空的集合中取第一个元素
     val str = items.firstOrNull() ?: ""
     println("取出的第一个元素：$str")
@@ -133,7 +134,7 @@ fun <T> asList(vararg ts: T): List<T> {
     return result
 }
 
-//闭包
+//高阶函数：将其他函数用作参数的函数，此模式对组件之间的通信（其方式与在 Java 中使用回调接口相同）很有用
 fun closureFun(complete: (Int, String) -> String) {
     println(complete(1, "a"))
 }
@@ -142,6 +143,10 @@ fun complete(a: Int, string: String): String {
     return "$a$string"
 }
 
+// 匿名函数
+val stringLengthFun: (String) -> Int = {
+    it.length
+}
 
 
 
