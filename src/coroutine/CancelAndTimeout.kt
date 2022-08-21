@@ -140,12 +140,14 @@ private fun timeout() {
 private fun timeoutOrNull() {
     runBlocking {
         val result = withTimeoutOrNull(1300) {
-            repeat(1000) {
-                println("job：I'm sleeping $it ...")
-                delay(500)
+            launch(Dispatchers.IO) {
+                repeat(10) {
+                    println("job：I'm sleeping $it ... " + Thread.currentThread().name)
+                    delay(500)
+                }
             }
             "Done" // 如果没有超时，则返回Done
         }
-        println("result = $result")
+        println("result = $result " + Thread.currentThread().name)
     }
 }

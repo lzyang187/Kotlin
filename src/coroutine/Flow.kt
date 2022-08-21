@@ -10,6 +10,24 @@ import kotlinx.coroutines.withTimeoutOrNull
  */
 
 fun main() {
+
+    runBlocking {
+        flow {
+            emit(1)
+            emit(2)
+            throw NullPointerException("eeee")
+            emit(3)
+        }.onEach {
+            println("onEach=$it")
+        }.catch {
+            println("catch=$this")
+        }.onCompletion {
+            println("onCompletion=$this")
+        }.collect {
+            println("collect=$it")
+        }
+    }
+
 //    val seq = seq()
 //    seq.forEach {
 //        println("seq：$it")

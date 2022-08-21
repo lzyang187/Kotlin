@@ -34,6 +34,14 @@ fun main(args: Array<String>) {
         println("circle不为空")
     } ?: println("circle为空")
 
+    val groupByList = listOf("a", "bc", "de", "fgh")
+    val groupByMap = groupByList.groupBy { it.length }
+    println("groupByMap = $groupByMap")
+
+    val nameList = listOf("tom", "jerry")
+    val cityList = listOf("beijing", "shanghai")
+    val associateWithMap = nameList.associateWith { cityList[nameList.indexOf(it)] }
+    println("associateWithMap = $associateWithMap")
 
 }
 

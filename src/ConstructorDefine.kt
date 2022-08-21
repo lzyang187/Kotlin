@@ -10,7 +10,7 @@ class Person constructor(var name: String, var age: Int = 18) {
     var nameUp = name.toUpperCase()
     var book: Book? = null
 
-    // 实例初始化期间，初始化块按照它们出现在类体中的顺序执行，与属性初始化器交织在一起
+    // 只有主构造函数才能使用init代码块，实例初始化期间，初始化块按照它们出现在类体中的顺序执行，与属性初始化器交织在一起
     init {
         println("主构造函数的参数 name=$name age=$age book=$book")
     }
