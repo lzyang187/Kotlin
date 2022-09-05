@@ -24,12 +24,12 @@ fun main() {
         // launch函数和我们刚才所使用的GlobalScope.launch函数不同。首先它必须在协程的作用域中才能调用，
         // 其次它会在当前协程的作用域下创建子协程。子协程的特点是如果外层作用域的协程结束了，该作用域下的所有子协程也会一同结束。
         launch {
-            println("子协程1")
+            println("子协程1： ${Thread.currentThread().name}")
             delay(100)
             println("子协程1运行结束")
         }
         launch {
-            println("子协程2")
+            println("子协程2： ${Thread.currentThread().name}")
             delay(100)
             println("子协程2运行结束")
         }
