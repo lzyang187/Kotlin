@@ -14,6 +14,7 @@ fun main() {
         // flatMapConcat
         flowOf(1, 2, 3).flatMapConcat {
             // it就是来自第一个flow中的数据
+            println("it = $it")
             flowOf("a$it", "b$it")
         }.collect {
             println("flatMapConcat collect = $it")
@@ -26,7 +27,35 @@ fun main() {
             println("flatMapConcat userInfo = $it")
         }
 
+        // flatMapMerge：concat是连接的意思，merge是合并的意思。连接一定会保证数据是按照原有的顺序连接起来的，
+        // 而合并则只保证将数据合并到一起，并不会保证顺序
+        flowOf(300, 200 ,100)
+            .flatMapMerge {
+                flow {
+                    delay(it.toLong())
+                    emit("a$it")
+                    emit("b$it")
+                }
+            }.collect {
+                println("flatMapMerge collect = $it")
+            }
 
+        // flatMapLatest：flow1中的数据传递到flow2中会立刻进行处理，但如果flow1中的下一个数据要发送了，
+        // 而flow2中上一个数据还没处理完，则会直接将剩余逻辑取消掉，开始处理最新的数据
+        flow {
+            emit(1)
+            delay(150)
+            emit(2)
+            delay(50)
+            emit(3)
+        }.flatMapLatest {
+            flow {
+                delay(100)
+                emit("$it")
+            }
+        }.collect {
+            println("flatMapLatest collect = $it")
+        }
     }
 }
 

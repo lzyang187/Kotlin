@@ -36,7 +36,7 @@ class GetSet(val list: MutableList<Int>) {
     var name: String = ""
         set(value) {
             println("调用了set value:$value")
-            // 每个属性背后都隐藏着响应的幕后字段（field）被用来存储实际的数据，幕后字段只能通过get或set来访问
+            // 每个属性背后都隐藏着相应的幕后字段（field）被用来存储实际的数据，幕后字段只能通过get或set来访问
             field = value
         }
 }
