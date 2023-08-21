@@ -1,4 +1,9 @@
-//方法的声明和使用
+/**
+ * 函数类型：编程语言有整形、布尔型等字段类型，而Kotlin又增加了一个函数类型的概念。
+ * 函数类型的语法规则为：(String, Int) -> Unit
+ * 像apply函数 apply(block: T.() -> Unit) 在函数类型的前面加上ClassName（T）. 就表示这个函数类型是定义在哪个类当中的。好处就是当我们调用apply
+ * 函数时传入的Lambda表达式将会自动拥有T的上下文
+ */
 fun main(args: Array<String>) {
 //    println(sumSimple(3, 5))
 //    printSum(10, 20)
@@ -103,10 +108,7 @@ fun inRangeStep() {
 fun useCollections() {
     //只读list
     val items = listOf("kiwifruit", "apple", "banana", "avocado")
-    items.filter { it.startsWith("a") }
-            .sortedBy { it }
-            .map { it.toUpperCase() }
-            .forEach { println(it) }
+    items.filter { it.startsWith("a") }.sortedBy { it }.map { it.toUpperCase() }.forEach { println(it) }
     //在可能为空的集合中取第一个元素
     val str = items.firstOrNull() ?: ""
     println("取出的第一个元素：$str")
@@ -134,7 +136,7 @@ fun <T> asList(vararg ts: T): List<T> {
     return result
 }
 
-//高阶函数：将其他函数用作参数的函数，此模式对组件之间的通信（其方式与在 Java 中使用回调接口相同）很有用
+//高阶函数：将其他函数用作参数的函数，或者返回值类型是另一个函数。此模式对组件之间的通信（其方式与在 Java 中使用回调接口相同）很有用
 fun closureFun(complete: (Int, String) -> String) {
     println(complete(1, "a"))
 }
