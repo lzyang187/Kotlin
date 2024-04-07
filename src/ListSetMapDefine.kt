@@ -1,5 +1,3 @@
-import javafx.scene.shape.Circle
-
 //集合
 fun main(args: Array<String>) {
     val list1 = mutableListOf(null, 1, 2, 3)
@@ -28,11 +26,6 @@ fun main(args: Array<String>) {
     list3.add("a")
     list3.add(null)
     println(list3.lastOrNull())
-
-    val circle: Circle? = null
-    circle?.apply {
-        println("circle不为空")
-    } ?: println("circle为空")
 
     val groupByList = listOf("a", "bc", "de", "fgh")
     val groupByMap = groupByList.groupBy { it.length }

@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 public class StreamDemo {
     public static void main(String[] args) {
         List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd", "", "jkl");
+        // 过滤符合条件的
         Stream<String> stream = strings.stream().filter(new Predicate<String>() {
             @Override
             public boolean test(String s) {
@@ -19,11 +20,12 @@ public class StreamDemo {
             }
         });
         long count = stream.count();
-        System.out.println("去除空字符串后的数量：" + count);
+        System.out.println("空字符串的数量：" + count);
 
         List<String> strings1 = strings.stream().filter(s -> !s.isEmpty()).collect(Collectors.toList());
         System.out.println("去除空字符串后的列表：" + strings1);
 
+        // map映射
         List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5);
         Set<String> collect = numbers.stream().map(integer -> integer + "s").collect(Collectors.toSet());
         System.out.println("转换为字符串后返回集合：" + collect);
@@ -47,6 +49,14 @@ public class StreamDemo {
         System.out.println("列表中最小的数 : " + stats.getMin());
         System.out.println("所有数之和 : " + stats.getSum());
         System.out.println("平均数 : " + stats.getAverage());
+
+        // 匹配
+        boolean anyMatch = integers.stream().anyMatch(t -> t == 1);
+        System.out.println("anyMatch = " + anyMatch);
+        boolean allMatch = integers.stream().allMatch(it -> it > 1);
+        System.out.println("allMatch = " + allMatch);
+        boolean noneMatch = integers.stream().noneMatch(it -> it <= 1);
+        System.out.println("noneMatch = " + noneMatch);
 
     }
 }
