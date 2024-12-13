@@ -1,3 +1,5 @@
+import java.util.*
+
 /**
  * 函数类型：编程语言有整形、布尔型等字段类型，而Kotlin又增加了一个函数类型的概念。
  * 函数类型的语法规则为：(String, Int) -> Unit
@@ -108,7 +110,7 @@ fun inRangeStep() {
 fun useCollections() {
     //只读list
     val items = listOf("kiwifruit", "apple", "banana", "avocado")
-    items.filter { it.startsWith("a") }.sortedBy { it }.map { it.toUpperCase() }.forEach { println(it) }
+    items.filter { it.startsWith("a") }.sortedBy { it }.map { it.uppercase(Locale.getDefault()) }.forEach { println(it) }
     //在可能为空的集合中取第一个元素
     val str = items.firstOrNull() ?: ""
     println("取出的第一个元素：$str")

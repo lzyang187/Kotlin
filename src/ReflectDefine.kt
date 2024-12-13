@@ -12,4 +12,4 @@ fun main(args: Array<String>) {
 
 class ReflectClass(val name: String)
 
-fun isOdd(x: Int) = x % 2 != 0
+fun isOdd(x: Int): Boolean = x % 2 != 0

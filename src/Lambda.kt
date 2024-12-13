@@ -1,10 +1,12 @@
+import java.util.*
+
 /**
  * Lambda表达式：Lambda就是一小段可以作为参数传递的代码
  * Lambda表达式的语法结构：
  * {参数名1: 参数类型, 参数名2: 参数类型 -> 函数体}
  */
 fun main() {
-    val list = listOf<String>("a", "bb", "ccc")
+    val list = listOf("a", "bb", "ccc")
     val lambda = { str: String -> str.length }
     // 原始调用
     val maxBy1 = list.maxBy(lambda)
@@ -20,10 +22,7 @@ fun main() {
     val maxBy3 = list.maxBy { it.length }
     println("$maxBy1 $maxBy2 $maxBy3")
 
-    val map = list.map { it.toUpperCase() }
-    for (s in map) {
-        println(s)
-    }
-
+    val map = list.map { it.uppercase(Locale.getDefault()) }
+    println(map)
 
 }

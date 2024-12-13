@@ -1,5 +1,7 @@
 package _2020_04_26
 
+import java.util.*
+
 val fruitArray = listOf("apple", "banana", "pear")
 
 fun main() {
@@ -52,7 +54,7 @@ fun canNullFun(a: Int): Int? {
 }
 
 //类型判断
-fun getStrLen(obj: Any): Int? {
+fun getStrLen(obj: Any): Int {
     var len = -1
     if (obj is String) {
         // `obj` 在该条件分支内自动转换成 `String`
@@ -106,7 +108,7 @@ fun arrayFun() {
     //使用 lambda 表达式来过滤（filter）与映射（map）集合
     fruitArray.filter { it.startsWith("a") }
             .sortedBy { it }
-            .map { it.toUpperCase() }
+            .map { it.uppercase(Locale.getDefault()) }
             .forEach { println(it) }
 }
 

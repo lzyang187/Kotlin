@@ -5,7 +5,7 @@ fun main(args: Array<String>) {
 
 class MyClass() {
     //伴生对象的成员看起来像其他语言的静态成员，在运行时他们仍然是真实对象的实例成员
-    companion object CompanClass {
+    companion object {
         fun companionFun() {
             println("伴生类的方法")
         }
