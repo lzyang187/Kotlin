@@ -13,6 +13,10 @@ fun main(args: Array<String>) {
     println(boy3)
 }
 
+/**
+ * 通过Decompile为Java代码可知：
+ * 会根据“构造函数中的成员变量”自动生成toString、equals、hashCode、get、set(如果是var)、copy方法。
+ */
 data class Boy(val name: String) {
     var age: Int = 10
 }
